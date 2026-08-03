@@ -1,6 +1,6 @@
-# Getting Started With Schematics
+# First U2A Schematics library
 
-This repository is a basic Schematic implementation that serves as a starting point to create and publish Schematics to NPM.
+This repository is a U2A Schematic implementation that serves as a starting point to create and publish Schematics to NPM.
 
 ### Testing
 
@@ -15,8 +15,10 @@ schematics --help
 ### Unit Testing
 
 `npm run test` will run the unit tests, using Jasmine as a runner and test framework.
+TODO convert to vitest
 
-### Publishing
+
+### Publishing (work in progress)
 
 To publish, simply do:
 
@@ -26,4 +28,14 @@ npm publish
 ```
 
 That's it!
-# u2a-schematics
+
+### for now 
+
+npm run build
+npm link
+
+### in receiving work space
+
+npm link u2a-schematics
+ng g u2a-schematics:component <<component name>> (and, values are the defaults, --prefix u2a --path src/app)
+
