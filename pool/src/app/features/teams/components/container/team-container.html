@@ -1,0 +1,8 @@
+<h1>{{ facade.title }}</h1>
+<app-teams
+  [teams]="teams()"
+  [selectedTeam]="selectedTeam()"
+  (selected)="facade.setSelectedTeam($event)"
+  (sort)="facade.sortOn($event)"
+>
+</app-teams>

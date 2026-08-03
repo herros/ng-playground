@@ -1,0 +1,53 @@
+<div class="team-row team-header">
+  <button
+    type="button"
+    class="team-header-button"
+    [attr.aria-label]="'Sort by poule'"
+    (click)="sortBy('poule')"
+  >
+    <span class="team-poule">Poule</span>
+    <span
+      class="sort-indicator"
+      [class.active]="sortField === 'poule' && sortDirection"
+      [class.asc]="sortField === 'poule' && sortDirection === 'asc'"
+      [class.desc]="sortField === 'poule' && sortDirection === 'desc'"
+      >{{ getSortArrow('poule') }}</span
+    >
+  </button>
+  <button
+    type="button"
+    class="team-header-button"
+    [attr.aria-label]="'Sort by team'"
+    (click)="sortBy('name')"
+  >
+    <span class="team-name">Team</span>
+    <span
+      class="sort-indicator"
+      [class.active]="sortField === 'name' && sortDirection"
+      [class.asc]="sortField === 'name' && sortDirection === 'asc'"
+      [class.desc]="sortField === 'name' && sortDirection === 'desc'"
+      >{{ getSortArrow('name') }}</span
+    >
+  </button>
+</div>
+
+@for (team of teams(); track team.publicKey) {
+  <div class="team-row">
+    <span class="team-poule">{{ team.poule }}</span>
+    <span
+      class="team-name"
+      role="button"
+      tabindex="0"
+      (click)="clicked(team.publicKey)"
+      (keydown.enter)="clicked(team.publicKey)"
+      (keydown.space)="clicked(team.publicKey)"
+    >
+      {{ team.name }}
+    </span>
+  </div>
+}
+
+<br />
+{{
+  selectedTeam().publicKey === null ? 'No team selected' : 'Selected team: ' + selectedTeam().name
+}}
