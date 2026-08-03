@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "component": {
+      "description": "A first try",
+      "factory": "./component/index#component",
+      "schema": "./component/schema.json"
+    }
+  }
+}
