@@ -5,4 +5,27 @@ import { Component } from '@angular/core';
   selector: '<%= prefix %>-<%= dasherize(name) %>',
   templateUrl: './<%= dasherize(name) %>.component.html',
 })
-export class <%= classify(name) %>Component {}
+export class <%= classify(name) %>Component {
+  // Injects
+
+  // Inputs
+
+  // Outputs
+
+  // Signals
+
+  // Computed Signals
+
+  // Variables
+
+  constructor() {
+    // Effects
+  }
+
+  // Public methods
+
+  // Protected methods
+
+  // Private methods
+ 
+}
