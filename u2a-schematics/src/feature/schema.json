@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "FeatureSchema",
+  "title": "Organisation Feature Schematic",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the feature",
+      "$default": { "$source": "argv", "index": 0 },
+      "x-prompt": "What should the feature be called?"
+    },
+    "path": {
+      "type": "string",
+      "description": "Where to create the feature",
+      "default": "src/app"
+    }
+  },
+  "required": ["name"]
+}

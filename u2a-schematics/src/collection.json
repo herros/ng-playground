@@ -2,9 +2,15 @@
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
     "component": {
-      "description": "A first try",
+      "description": "Creating a u2a component",
       "factory": "./component/index#component",
       "schema": "./component/schema.json"
+    },
+    "feature": {
+      "aliases": ["f"],
+      "description": "Creating a u2a feature structure",
+      "factory": "./feature/index#feature",
+      "schema": "./feature/schema.json"
     }
   }
 }

@@ -1,0 +1,2 @@
+<!-- __name@dasherize__.component.html.template -->
+<p><%= dasherize(name) %> works!</p>
