@@ -1,0 +1,11 @@
+import { Component } from '@angular/core';
+
+@Component( {
+  selector: '<%= prefix %>-<%= dasherize(nameCN) %>',
+  imports: [<%= classify(name) %>],
+  templateUrl: './<%= dasherize(nameCN) %>.html',
+  styleUrl: './<%= dasherize(nameCN) %>.sccs',
+})
+export class <%= classify(nameCN) %> {
+
+}

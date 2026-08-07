@@ -12,8 +12,14 @@
     },
     "path": {
       "type": "string",
-      "description": "Where to create the feature",
-      "default": "src/app"
+      "format": "path",
+      "default": "src/app/features",
+      "description": "Where to create the feature"
+    },
+    "prefix": {
+      "type": "string",
+      "default": "u2a",
+      "description": "The prefix to use for the selectors"
     }
   },
   "required": ["name"]
