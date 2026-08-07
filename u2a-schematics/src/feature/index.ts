@@ -1,10 +1,13 @@
 import { normalize, strings } from '@angular-devkit/core';
 import {
+  MergeStrategy,
   Rule,
   SchematicContext,
   Tree,
   apply,
   applyTemplates,
+  chain,
+  externalSchematic,
   mergeWith,
   move,
   url,
@@ -19,6 +22,7 @@ export function feature(options: FeatureSchema): Rule {
     const targetPath = normalize(
       `${options.path}/${strings.dasherize(options.name)}`,
     );
+    context.logger.info(`in targetPath: ${targetPath}`);
 
     const templateSource = apply(url('./files'), [
       applyTemplates({
@@ -26,10 +30,22 @@ export function feature(options: FeatureSchema): Rule {
         ...strings,
         // Options available inside templates
         name: options.name,
+        nameEP: `${options.name}Entrypoint`,
+        prefix: options.prefix,
       }),
       move(targetPath),
     ]);
 
-    return mergeWith(templateSource);
+    return chain([
+      externalSchematic('@schematics/angular', 'component', {
+        name: `${options.name}Entrypoint`,
+        path: targetPath,
+        flat: true,
+        inlineStyle: true,
+        inlineTemplate: true,
+        skipTests: true,
+      }),
+      mergeWith(templateSource, MergeStrategy.Overwrite),
+    ])(_tree, context);
   };
 }

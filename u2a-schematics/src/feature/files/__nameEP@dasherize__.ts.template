@@ -1,0 +1,13 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: '<%= prefix %>-<%= dasherize(nameEP) %>',
+  imports: [<%= classify(name) %>Container],
+  template: `
+      <<%= prefix %>-<%= dasherize(name) %>-container></<%= prefix %>-<%= dasherize(name) %>-container>
+  `,
+  providers: [<%= classify(name) %>Store,<%= classify(name) %>StoreFacade]
+})
+export class <%= classify(nameEP) %> {
+
+}
