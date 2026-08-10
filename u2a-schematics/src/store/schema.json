@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "StoreSchema",
+  "title": "Organisation Store Schematic",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the store",
+      "$default": { "$source": "argv", "index": 0 },
+      "x-prompt": "What should the store be called?"
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "default": "src/app/features",
+      "description": "Where to create the store"
+    }
+  },
+  "required": ["name"]
+}

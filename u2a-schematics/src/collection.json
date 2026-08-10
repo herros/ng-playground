@@ -11,6 +11,12 @@
       "description": "Creating a u2a feature structure",
       "factory": "./feature/index#feature",
       "schema": "./feature/schema.json"
+    },
+    "store": {
+      "aliases": ["s"],
+      "description": "Creating a u2a signal store",
+      "factory": "./store/index#store",
+      "schema": "./store/schema.json"
     }
   }
 }

@@ -1,0 +1,16 @@
+import { signalStore, withFeature, withHooks } from '@ngrx/signals';
+import { with<%= classify(name) %>StoreComputed } from './<%= dasherize(name) %>-store.computed';
+import { with<%= classify(name) %>StoreMethods } from './<%= dasherize(name) %>-store.methods';
+import { with<%= classify(name) %>StoreState } from './<%= dasherize(name) %>-store.state';
+
+export const <%= classify(name) %>Store = signalStore(
+  with<%= classify(name) %>StoreState(),
+  with<%= classify(name) %>StoreMethods(),
+  with<%= classify(name) %>StoreComputed(),
+  withHooks({
+    onInit: (store): void => {
+    },
+  }),
+);
+
+export type <%= classify(name) %>StoreType = InstanceType<typeof <%= classify(name) %>Store>;

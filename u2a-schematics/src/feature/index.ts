@@ -47,15 +47,20 @@ export function feature(options: FeatureSchema): Rule {
         inlineTemplate: true,
         skipTests: true,
       }),
-      mergeWith(templateSource, MergeStrategy.Overwrite),
-    ])(_tree, context);
-    return chain([
       externalSchematic("@schematics/angular", "component", {
-        name: `${options.name}Entrypoint`,
+        name: `./components/${options.name}`,
         path: targetPath,
         flat: true,
-        inlineStyle: true,
-        inlineTemplate: true,
+        inlineStyle: false,
+        inlineTemplate: false,
+        skipTests: true,
+      }),
+      externalSchematic("@schematics/angular", "component", {
+        name: `./components/${options.name}Container`,
+        path: targetPath,
+        flat: true,
+        inlineStyle: false,
+        inlineTemplate: false,
         skipTests: true,
       }),
       mergeWith(templateSource, MergeStrategy.Overwrite),
