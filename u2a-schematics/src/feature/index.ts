@@ -1,4 +1,4 @@
-import { normalize, strings } from '@angular-devkit/core';
+import { normalize, strings } from "@angular-devkit/core";
 import {
   MergeStrategy,
   Rule,
@@ -11,8 +11,8 @@ import {
   mergeWith,
   move,
   url,
-} from '@angular-devkit/schematics';
-import { FeatureSchema } from './schema';
+} from "@angular-devkit/schematics";
+import { FeatureSchema } from "./schema";
 
 export function feature(options: FeatureSchema): Rule {
   return (_tree: Tree, context: SchematicContext) => {
@@ -23,8 +23,9 @@ export function feature(options: FeatureSchema): Rule {
       `${options.path}/${strings.dasherize(options.name)}`,
     );
     context.logger.info(`in targetPath: ${targetPath}`);
+    context.logger.info(`in targetPath: ${targetPath}`);
 
-    const templateSource = apply(url('./files'), [
+    const templateSource = apply(url("./files"), [
       applyTemplates({
         // String utility functions available inside templates
         ...strings,
@@ -38,7 +39,18 @@ export function feature(options: FeatureSchema): Rule {
     ]);
 
     return chain([
-      externalSchematic('@schematics/angular', 'component', {
+      externalSchematic("@schematics/angular", "component", {
+        name: `${options.name}Entrypoint`,
+        path: targetPath,
+        flat: true,
+        inlineStyle: true,
+        inlineTemplate: true,
+        skipTests: true,
+      }),
+      mergeWith(templateSource, MergeStrategy.Overwrite),
+    ])(_tree, context);
+    return chain([
+      externalSchematic("@schematics/angular", "component", {
         name: `${options.name}Entrypoint`,
         path: targetPath,
         flat: true,
