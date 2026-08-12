@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { <%= classify(nameCN) %> } from './components/<%= dasherize(nameCN) %>';  
+import { <%= classify(name) %>Store } from './store/<%= dasherize(name) %>.store';  
+import { <%= classify(name) %>StoreFacade } from './services/<%= dasherize(name) %>-store-facade';  
 
 @Component({
   selector: '<%= prefix %>-<%= dasherize(nameEP) %>',

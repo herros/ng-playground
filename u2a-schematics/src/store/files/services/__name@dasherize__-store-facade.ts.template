@@ -1,0 +1,20 @@
+import { inject, Service } from '@angular/core';
+import { <%= classify(name) %>Store } from '../store/<%= dasherize(name) %>.store'; 
+
+@Service({ autoProvided: false })
+export class <%= classify(name) %>StoreFacade {
+  // Injects
+  private readonly _store = inject(<%= classify(name) %>Store);
+
+  // Signals
+
+  // Computed Signals
+
+  // Variables
+
+  // Public methods
+
+  // Protected methods
+
+  // Private methods
+}

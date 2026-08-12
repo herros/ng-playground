@@ -7,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrl: './<%= dasherize(name) %>.scss',
 })
 export class <%= classify(name) %> {
+  // Inputs 
+  
+  // Outputs
 
+  // Signals
+
+  // Computed Signals
+
+  // Variables
+
+  // Effects (may be present, in constructor)
+
+  // Public methods
+
+  // Protected methods
+
+  // Private methods
 }

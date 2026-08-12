@@ -8,5 +8,22 @@ import { <%= classify(name) %> } from './<%= dasherize(name) %>';
   styleUrl: './<%= dasherize(nameCN) %>.scss',
 })
 export class <%= classify(nameCN) %> {
+  // Injects
+
+  // Inputs and Outputs (usually not present in containers)
+
+  // Signals
+
+  // Computed Signals
+
+  // Variables
+
+  // Effects (may be present, in constructor)
+
+  // Public methods
+
+  // Protected methods
+
+  // Private methods
 
 }

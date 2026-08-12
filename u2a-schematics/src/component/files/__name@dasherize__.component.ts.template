@@ -1,4 +1,3 @@
-// __name@dasherize__.component.ts.template
 import { Component } from '@angular/core';
 
 @Component({

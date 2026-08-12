@@ -18,7 +18,7 @@ export function store(options: StoreSchema): Rule {
 
     // Where the files will land
     const targetPath = normalize(
-      `${options.path}/${strings.dasherize(options.name)}/store`,
+      `${options.path}/${strings.dasherize(options.name)}`,
     );
     context.logger.info(`in targetPath: ${targetPath}`);
 

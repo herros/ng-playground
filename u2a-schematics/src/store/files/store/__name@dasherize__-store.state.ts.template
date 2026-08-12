@@ -1,0 +1,11 @@
+import { withState } from '@ngrx/signals';
+
+export interface I<%= classify(name) %>State {
+}
+
+const initialState: I<%= classify(name) %>State = {
+};
+
+export function with<%= classify(name) %>StoreState(): ReturnType<typeof withState<I<%= classify(name) %>State>> {
+  return withState(initialState);
+}

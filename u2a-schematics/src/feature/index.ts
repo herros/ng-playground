@@ -10,6 +10,7 @@ import {
   externalSchematic,
   mergeWith,
   move,
+  schematic,
   url,
 } from "@angular-devkit/schematics";
 import { FeatureSchema } from "./schema";
@@ -62,6 +63,9 @@ export function feature(options: FeatureSchema): Rule {
         inlineStyle: false,
         inlineTemplate: false,
         skipTests: true,
+      }),
+      schematic("store", {
+        name: `${options.name}`,
       }),
       mergeWith(templateSource, MergeStrategy.Overwrite),
     ])(_tree, context);

@@ -1,0 +1,11 @@
+import { signalStoreFeature, withComputed } from '@ngrx/signals';
+import { I<%= classify(name) %>State } from './<%= dasherize(name) %>-store.state';
+
+export function with<%= classify(name) %>StoreComputed() {
+  return signalStoreFeature(
+    { state: undefined as unknown as I<%= classify(name) %>State },
+
+    withComputed((state) => ({
+    })),
+  );
+}
