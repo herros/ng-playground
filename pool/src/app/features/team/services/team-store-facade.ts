@@ -1,33 +1,40 @@
 import { inject, Service, Signal } from '@angular/core';
-import { GlobalStoreFacade } from '@app/core/services/global-store-facade';
 import { Team } from '@models/team';
+import { GlobalStoreFacade } from '@services/global-store-facade';
 import { TeamStore } from '../store/team.store';
 
-@Service()
+@Service({ autoProvided: false })
 export class TeamStoreFacade {
+  // Injects
   private readonly _store = inject(TeamStore);
   private readonly _globalStore = inject(GlobalStoreFacade);
 
-  public get selectedTeam(): Signal<Team> {
+  // Signals
+
+  // Computed Signals
+
+  // Variables
+  get selectedTeam(): Signal<Team> {
     return this._store.selectedTeam;
   }
 
-  public set selectedTeam(value: Team) {
+  set selectedTeam(value: Team) {
     throw new Error('Do not set selectedTeam directly. Use setSelectedTeam() instead.');
   }
 
-  public get teams(): Signal<Team[]> {
+  get teams(): Signal<Team[]> {
     return this._store.sortedData;
   }
 
-  public get title(): string {
+  get title(): string {
     return this._globalStore.title();
   }
 
-  public set title(value: string) {
+  set title(value: string) {
     this._globalStore.title = value;
   }
 
+  // Public methods
   public setSelectedTeam(key: string): void {
     this._store.setSelected(key);
   }
@@ -43,4 +50,8 @@ export class TeamStoreFacade {
     const { key, direction } = sortParms;
     this._store.setSort(key, direction);
   }
+
+  // Protected methods
+
+  // Private methods
 }

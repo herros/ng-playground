@@ -1,28 +1,33 @@
 import { Component, input, output } from '@angular/core';
-import { Team } from '@models/team';
+import { Team as TeamModel } from '@models/team';
 
 @Component({
-  selector: 'app-teams',
+  selector: 'u2a-team',
   imports: [],
-  templateUrl: './teams.html',
-  styleUrl: './teams.scss',
+  templateUrl: './team.html',
+  styleUrl: './team.scss',
 })
-export class Teams {
-  teams = input.required<Team[]>();
-  selectedTeam = input.required<Team>();
+export class Team {
+  // Inputs
+  teams = input.required<TeamModel[]>();
+  selectedTeam = input.required<TeamModel>();
+  // Outputs
   selected = output<string>();
-  sort = output<{ key: keyof Team; direction?: 'asc' | 'desc' }>();
-
+  sort = output<{ key: keyof TeamModel; direction?: 'asc' | 'desc' }>();
+  // Signals
+  // Computed Signals
+  // Variables
   protected sortDirection?: 'asc' | 'desc' = undefined;
-  protected sortField: keyof Team = 'name';
-
+  protected sortField: keyof TeamModel = 'name';
+  // Effects (may be present, in constructor)
+  // Public methods
   public clicked(key: string | null): void {
     if (key !== null) {
       this.selected.emit(key);
     }
   }
-
-  protected sortBy(key: keyof Team): void {
+  // Protected methods
+  protected sortBy(key: keyof TeamModel): void {
     if (this.sortField !== key) {
       this.sortField = key;
       this.sortDirection = 'asc';
@@ -38,11 +43,12 @@ export class Teams {
     this.sort.emit({ key: this.sortField, direction: this.sortDirection });
   }
 
-  protected getSortArrow(key: keyof Team): string {
+  protected getSortArrow(key: keyof TeamModel): string {
     if (this.sortField !== key) {
       return '↕';
     }
 
     return this.sortDirection === 'asc' ? '↑' : this.sortDirection === 'desc' ? '↓' : '↕';
   }
+  // Private methods
 }
