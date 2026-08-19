@@ -16,7 +16,7 @@ export class TeamService extends BaseService {
   }
 
   /*
-    Definetely a NO GO here, importing this teamFactory from the test folder is a bad practice,
+    Definitely a NO GO here, importing this teamFactory from the test folder is a bad practice,
     but for the sake of this example, we will use it to generate some fake data.
   */
   public getFakerTeams(): Team[] {

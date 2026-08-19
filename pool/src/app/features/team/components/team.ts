@@ -8,25 +8,45 @@ import { Team as TeamModel } from '@models/team';
   styleUrl: './team.scss',
 })
 export class Team {
-  // Inputs
+  /****************************************/
+  /* Inputs                               */
+  /****************************************/
   teams = input.required<TeamModel[]>();
   selectedTeam = input.required<TeamModel>();
-  // Outputs
+
+  /****************************************/
+  /* Outputs                              */
+  /****************************************/
   selected = output<string>();
   sort = output<{ key: keyof TeamModel; direction?: 'asc' | 'desc' }>();
-  // Signals
-  // Computed Signals
-  // Variables
+
+  /****************************************/
+  /* Signals                              */
+  /****************************************/
+  /****************************************/
+  /* Computed Signals                     */
+  /****************************************/
+  /****************************************/
+  /* Variables                            */
+  /****************************************/
   protected sortDirection?: 'asc' | 'desc' = undefined;
   protected sortField: keyof TeamModel = 'name';
-  // Effects (may be present, in constructor)
-  // Public methods
+
+  /****************************************/
+  /* Effects (if present, in constructor) */
+  /****************************************/
+  /****************************************/
+  /* Public methods                       */
+  /****************************************/
   public clicked(key: string | null): void {
     if (key !== null) {
       this.selected.emit(key);
     }
   }
-  // Protected methods
+
+  /****************************************/
+  /* Protected methods                    */
+  /****************************************/
   protected sortBy(key: keyof TeamModel): void {
     if (this.sortField !== key) {
       this.sortField = key;
@@ -50,5 +70,8 @@ export class Team {
 
     return this.sortDirection === 'asc' ? '↑' : this.sortDirection === 'desc' ? '↓' : '↕';
   }
-  // Private methods
+
+  /****************************************/
+  /* Private methods                      */
+  /****************************************/
 }

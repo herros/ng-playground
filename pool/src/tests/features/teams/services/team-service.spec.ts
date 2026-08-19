@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { TeamService } from '@features/teams/services/team-service';
+import { TeamService } from '@features/team/services/team-service';
 
 describe('TeamService', () => {
   afterEach(() => {

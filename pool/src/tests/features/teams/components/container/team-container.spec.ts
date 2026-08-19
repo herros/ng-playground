@@ -1,7 +1,7 @@
 import { signal } from '@angular/core';
-import { TeamContainer } from '@features/teams/components/container/team-container';
-import { Teams } from '@features/teams/components/display/teams';
-import { TeamStoreFacade } from '@features/teams/services/team-store-facade';
+import { Team as Teams } from '@features/team/components/team';
+import { TeamContainer } from '@features/team/components/team-container';
+import { TeamStoreFacade } from '@features/team/services/team-store-facade';
 import { render, RenderResult, screen } from '@testing-library/angular';
 import { MockComponent, ngMocks } from 'ng-mocks';
 import { teamFactory } from '../../../../shared/factories/team-factory';
@@ -46,7 +46,7 @@ describe('TeamContainer', () => {
 
   it('should bind teams to the display component', async () => {
     await setup();
-    const result = ngMocks.input('app-teams', 'teams');
+    const result = ngMocks.input('u2a-team', 'teams');
     expect(result).toEqual(teams);
   });
 
@@ -59,21 +59,19 @@ describe('TeamContainer', () => {
   it('should update the selected team when the display component emits a selection', async () => {
     const { fixture } = await setup();
 
-    ngMocks.output<string>('app-teams', 'selected').emit(teams[1].publicKey as string);
+    ngMocks.output<string>('u2a-team', 'selected').emit(teams[1].publicKey as string);
     fixture.detectChanges();
-    const result = ngMocks.input('app-teams', 'selectedTeam');
+    const result = ngMocks.input('u2a-team', 'selectedTeam');
     expect(result).toEqual(teams[1]);
   });
 
   it('should forward sort events to the facade', async () => {
     const { fixture, sortOn } = await setup();
 
-    ngMocks
-      .output<{ key: 'name' | 'poule'; direction?: 'asc' | 'desc' }>('app-teams', 'sort')
-      .emit({
-        key: 'poule',
-        direction: 'desc',
-      });
+    ngMocks.output<{ key: 'name' | 'poule'; direction?: 'asc' | 'desc' }>('u2a-team', 'sort').emit({
+      key: 'poule',
+      direction: 'desc',
+    });
     fixture.detectChanges();
 
     expect(sortOn).toHaveBeenCalledWith({ key: 'poule', direction: 'desc' });

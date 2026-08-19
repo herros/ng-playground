@@ -2,13 +2,14 @@ import { computed, Signal } from '@angular/core';
 import {
   patchState,
   signalStoreFeature,
-  // StateSignals,
   withComputed,
   withMethods,
   withState,
 } from '@ngrx/signals';
 
 export type SortDirection = 'asc' | 'desc';
+
+const stringCollator = new Intl.Collator(undefined, { numeric: true });
 
 // Interface for the initial state of the feature
 export interface SortState<T> {
@@ -61,8 +62,8 @@ export function withSorting<T>(data: Signal<T[]>) {
             // Sort based on type (String or others like Numbers/Dates)
             if (typeof valueA === 'string' && typeof valueB === 'string') {
               return direction === 'asc'
-                ? valueA.localeCompare(valueB)
-                : valueB.localeCompare(valueA);
+                ? stringCollator.compare(valueA, valueB)
+                : stringCollator.compare(valueB, valueA);
             }
 
             if (valueA < valueB) return direction === 'asc' ? -1 : 1;

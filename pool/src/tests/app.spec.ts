@@ -10,7 +10,7 @@ describe('App', () => {
 
   it('should render the team container', async () => {
     const { container } = await render(App);
-    const teamsHost = container.querySelector('app-teams');
+    const teamsHost = container.querySelector('u2a-team');
 
     expect(teamsHost?.textContent).toContain('No team selected');
   });

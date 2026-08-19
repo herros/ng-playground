@@ -9,19 +9,45 @@ import { Team } from './team';
   styleUrl: './team-container.scss',
 })
 export class TeamContainer implements OnInit {
-  // Injects
+  /****************************************/
+  /* Injects                              */
+  /****************************************/
   protected readonly facade = inject(TeamStoreFacade);
-  // Inputs and Outputs (usually not present in containers)
-  // Signals
-  // Computed Signals
-  // Variables
+
+  /****************************************/
+  /* Inputs and Outputs (if present)      */
+  /****************************************/
+
+  /****************************************/
+  /* Signals                              */
+  /****************************************/
+
+  /****************************************/
+  /* Computed Signals                     */
+  /****************************************/
+
+  /****************************************/
+  /* Variables                            */
+  /****************************************/
   protected selectedTeam = this.facade.selectedTeam;
   protected teams = this.facade.teams;
-  // Effects (may be present, in constructor)
-  // Public methods
+
+  /****************************************/
+  /* Effects (if present, in constructor) */
+  /****************************************/
+
+  /****************************************/
+  /* Public methods                       */
+  /****************************************/
   public ngOnInit(): void {
     this.facade.title = 'Teams';
   }
-  // Protected methods
-  // Private methods
+
+  /****************************************/
+  /* Protected methods                    */
+  /****************************************/
+
+  /****************************************/
+  /* Private methods                      */
+  /****************************************/
 }

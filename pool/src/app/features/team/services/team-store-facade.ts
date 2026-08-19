@@ -5,15 +5,23 @@ import { TeamStore } from '../store/team.store';
 
 @Service({ autoProvided: false })
 export class TeamStoreFacade {
-  // Injects
+  /****************************************/
+  /* Injects                              */
+  /****************************************/
   private readonly _store = inject(TeamStore);
   private readonly _globalStore = inject(GlobalStoreFacade);
 
-  // Signals
+  /****************************************/
+  /* Signals                              */
+  /****************************************/
 
-  // Computed Signals
+  /****************************************/
+  /* Computed Signals                     */
+  /****************************************/
 
-  // Variables
+  /****************************************/
+  /* Variables                            */
+  /****************************************/
   get selectedTeam(): Signal<Team> {
     return this._store.selectedTeam;
   }
@@ -34,7 +42,13 @@ export class TeamStoreFacade {
     this._globalStore.title = value;
   }
 
-  // Public methods
+  /****************************************/
+  /* Effects (if present, in constructor) */
+  /****************************************/
+
+  /****************************************/
+  /* Public methods                       */
+  /****************************************/
   public setSelectedTeam(key: string): void {
     this._store.setSelected(key);
   }
@@ -51,7 +65,11 @@ export class TeamStoreFacade {
     this._store.setSort(key, direction);
   }
 
-  // Protected methods
+  /****************************************/
+  /* Protected methods                    */
+  /****************************************/
 
-  // Private methods
+  /****************************************/
+  /* Private methods                      */
+  /****************************************/
 }
