@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
-import { TeamService } from '@features/teams/services/team-service';
-import { TeamStoreFacade } from '@features/teams/services/team-store-facade';
-import { TeamStore } from '@features/teams/store/team.store';
+import { TeamService } from '@features/team/services/team-service';
+import { TeamStoreFacade } from '@features/team/services/team-store-facade';
+import { TeamStore } from '@features/team/store/team.store';
 import { Team } from '@models/team';
 import { teamFactory } from '../../../shared/factories/team-factory';
 

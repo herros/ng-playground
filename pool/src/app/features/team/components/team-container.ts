@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { TeamStoreFacade } from '../services/team-store-facade';
+import { Team } from './team';
 
 @Component({
-  selector: '<%= prefix %>-<%= dasherize(name) %>',
-  templateUrl: './<%= dasherize(name) %>.component.html',
+  selector: 'u2a-team-container',
+  imports: [Team],
+  templateUrl: './team-container.html',
+  styleUrl: './team-container.scss',
 })
-export class <%= classify(name) %>Component {
-
+export class TeamContainer implements OnInit {
   /****************************************/
   /* Injects                              */
   /****************************************/
+  protected readonly facade = inject(TeamStoreFacade);
 
   /****************************************/
-  /* Inputs                               */
-  /****************************************/
-
-  /****************************************/
-  /* Outputs                              */
+  /* Inputs and Outputs (if present)      */
   /****************************************/
 
   /****************************************/
@@ -29,6 +29,8 @@ export class <%= classify(name) %>Component {
   /****************************************/
   /* Variables                            */
   /****************************************/
+  protected selectedTeam = this.facade.selectedTeam;
+  protected teams = this.facade.teams;
 
   /****************************************/
   /* Effects (if present, in constructor) */
@@ -37,6 +39,9 @@ export class <%= classify(name) %>Component {
   /****************************************/
   /* Public methods                       */
   /****************************************/
+  public ngOnInit(): void {
+    this.facade.title = 'Teams';
+  }
 
   /****************************************/
   /* Protected methods                    */
@@ -45,5 +50,4 @@ export class <%= classify(name) %>Component {
   /****************************************/
   /* Private methods                      */
   /****************************************/
-
 }

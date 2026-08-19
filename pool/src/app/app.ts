@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TeamEntrypoint } from '@features/teams/team-entrypoint';
+import { TeamEntrypoint } from '@features/team/team-entrypoint';
 
 @Component({
   selector: 'app-root',

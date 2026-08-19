@@ -1,4 +1,4 @@
-import { Teams } from '@features/teams/components/display/teams';
+import { Team as Teams } from '@features/team/components/team';
 import { Team } from '@models/team';
 import { fireEvent, render, screen } from '@testing-library/angular';
 import { teamFactory } from '../../../../shared/factories/team-factory';

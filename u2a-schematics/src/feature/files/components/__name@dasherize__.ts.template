@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 
-@Component({
+@Component( {
   selector: '<%= prefix %>-<%= dasherize(name) %>',
-  templateUrl: './<%= dasherize(name) %>.component.html',
+  imports: [],
+  templateUrl: './<%= dasherize(name) %>.html',
+  styleUrl: './<%= dasherize(name) %>.scss',
 })
-export class <%= classify(name) %>Component {
-
-  /****************************************/
-  /* Injects                              */
-  /****************************************/
+export class <%= classify(name) %> {
 
   /****************************************/
   /* Inputs                               */
@@ -29,7 +27,7 @@ export class <%= classify(name) %>Component {
   /****************************************/
   /* Variables                            */
   /****************************************/
-
+  
   /****************************************/
   /* Effects (if present, in constructor) */
   /****************************************/

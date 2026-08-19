@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { TeamService } from '@features/teams/services/team-service';
-import { TeamStore } from '@features/teams/store/team.store';
+import { TeamService } from '@features/team/services/team-service';
+import { TeamStore } from '@features/team/store/team.store';
 import { Team } from '@models/team';
 
 function setup(customTeams: Team[] | null = [], selectedKey?: string) {

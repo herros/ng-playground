@@ -40,7 +40,7 @@
   "devDependencies": {
     "@angular-eslint/builder": "^22.1.0",
     "@angular/build": "^22.0.5",
-    "@angular/cli": "^22.0.5",
+    "@angular/cli": "^21.0.4",
     "@angular/compiler-cli": "^22.0.6",
     "@eslint/js": "^10.0.1",
     "@faker-js/faker": "^10.5.0",
