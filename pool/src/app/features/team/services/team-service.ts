@@ -1,3 +1,4 @@
+import { httpResource, HttpResourceRef } from '@angular/common/http';
 import { Service } from '@angular/core';
 import { Team } from '@models/team';
 import { BaseService } from '@services/base';
@@ -10,9 +11,25 @@ export class TeamService extends BaseService {
     void skipLoader;
 
     return lastValueFrom(
-      // this.http.get<Team[]>(this.getUrl('team'), skipLoader ? this.skipLoader() : undefined),
       of(this.getFakerTeams()), // Mocking the API call for testing purposes
     );
+  }
+
+  public getAllHttpClient(skipLoader: boolean): Promise<Team[]> {
+    void skipLoader;
+
+    return lastValueFrom(
+      this.http.get<Team[]>(this.getUrl('team'), skipLoader ? this.skipLoader() : undefined),
+    );
+  }
+
+  public getAllHttpResource(skipLoader: boolean): HttpResourceRef<Team[] | undefined> {
+    void skipLoader;
+
+    return httpResource<Team[]>(() => this.getUrl('team'), {
+      parse: (response) => response as Team[],
+      defaultValue: teamFactory.buildList(10),
+    });
   }
 
   /*
